@@ -1,4 +1,4 @@
- 
+     
 # Exercise: ATM Simulator
 
 ## Specifications
