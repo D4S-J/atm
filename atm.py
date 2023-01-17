@@ -46,7 +46,6 @@ def deposit_menu():
         with open('balance.txt') as balance:
             print(balance.read())
 
-main_menu()
 
 
 
