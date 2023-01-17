@@ -4,20 +4,20 @@
 ## Specifications
 
 ### Read initial balance from file, or use constant
-- [ ] Write a cli script that starts by reading a customer’s bank balance from a file named `balance.txt`.
-- [ ] This file contains a single line with the customer’s starting balance.
-- [ ] If the file does not exist, use a starting balance of 100.0, which must be a constant.
+- [✓] Write a cli script that starts by reading a customer’s bank balance from a file named `balance.txt`.
+- [✓] This file contains a single line with the customer’s starting balance.
+- [✓] If the file does not exist, use a starting balance of 100.0, which must be a constant.
 
 ### Prompt the customer for input
-- [ ] The program will then repeatedly prompt the customer to deposit money, withdraw money, inspect balance, or quit, using the letters D, W, B, and Q.
-- [ ] If any other input is given, the program has to remind the customer of the available commands.
-- [ ] The program must accept input in uppercase or lowercase.
+- [✓] The program will then repeatedly prompt the customer to deposit money, withdraw money, inspect balance, or quit, using the letters D, W, B, and Q.
+- [✓] If any other input is given, the program has to remind the customer of the available commands.
+- [✓] The program must accept input in uppercase or lowercase.
 
 ### Deposit money
-- [ ] For deposits, the program prompts for an amount.
-- [ ] The amount must be greater than zero.
-- [ ] In case of invalid input, the program must give an appropriate error message that tells the customer how to fix it.
-- [ ] If the amount is valid, the program will add the deposit amount to the customer’s balance and display the new balance.
+- [✓] For deposits, the program prompts for an amount.
+- [✓] The amount must be greater than zero.
+- [✓] In case of invalid input, the program must give an appropriate error message that tells the customer how to fix it.
+- [✓] If the amount is valid, the program will add the deposit amount to the customer’s balance and display the new balance.
 
 ### Withdraw money
 - [ ] For withdrawals, the program prompts for an amount.
