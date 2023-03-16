@@ -5,6 +5,7 @@ file_exists = os.path.exists('balance.txt')
 if file_exists == False:
     with open('balance.txt', 'w') as balance:
         balance.write("100")
+    print("your balance has been created")
 
 
 def main_menu():
