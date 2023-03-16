@@ -2,7 +2,7 @@ import os.path
 
 file_exists = os.path.exists('balance.txt')
 
-if file_exists:
+if file_exists == False:
     with open('balance.txt', 'w') as balance:
        balance.write("100")
 
@@ -24,25 +24,40 @@ def main_menu():
         balance_menu()
 
     elif selection == "Q" or selection == "q":
-        print("Have a nice day.q")
+        print("Have a nice day.")
         quit()
 
     else:
-        print( "\"" + selection + "\" is not a valid option, please select a valid option.")
+        print("\"" + selection + "\" is not a valid option, please select a valid option.")
         main_menu()
 
 
 def deposit_menu():
-    amount = int(input("how much money would you like to add to your balance?"))
-    if amount < 0:
-        print("the amount you've entered is invalid due to it being either zero or lower please rectify")
+    d_amount = int(input("how much money would you like to add to your balance?"))
+    if d_amount < 0:
+        print("The amount you've entered is invalid due to it being either zero or lower. Please rectify")
         deposit_menu()
 
     else:
         with open('balance.txt') as balance:
             current_balance = int(balance.read())
             with open('balance.txt', 'w') as balance2:
-                balance2.write(str(current_balance + amount))
+                balance2.write(str(current_balance + d_amount))
+        with open('balance.txt') as balance:
+            print(balance.read())
+
+
+def withdraw_menu():
+    w_amount = int(input("How much money would you like to withdraw from your account? "))
+    if w_amount == 0 or w_amount > balance:
+        print("The amount you've entered is invalid due to it being either zero or more than your current balance. "
+              "Please rectify.")
+        withdraw_menu()
+    else:
+        with open('balance.txt') as balance:
+            current_balance = int(balance.read())
+            with open('balance.txt', 'w') as balance2:
+                balance2.write((current_balance- w_amount)
         with open('balance.txt') as balance:
             print(balance.read())
 
@@ -51,5 +66,4 @@ def deposit_menu():
 
 
 
-
-
+main_menu()
