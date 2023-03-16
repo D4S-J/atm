@@ -4,7 +4,7 @@ file_exists = os.path.exists('balance.txt')
 
 if file_exists == False:
     with open('balance.txt', 'w') as balance:
-       balance.write("100")
+        balance.write("100")
 
 
 def main_menu():
@@ -12,7 +12,7 @@ def main_menu():
                       "Deposit money. [D] "
                       "Withdraw money. [W] "
                       "Inspect balance. [B] "
-                      "Quit program. [Q]"
+                      "Quit program. [Q] "
                       )
     if selection == "D" or selection == "d":
         deposit_menu()
@@ -33,7 +33,7 @@ def main_menu():
 
 
 def deposit_menu():
-    d_amount = int(input("how much money would you like to add to your balance?"))
+    d_amount = int(input("how much money would you like to add to your balance? "))
     if d_amount < 0:
         print("The amount you've entered is invalid due to it being either zero or lower. Please rectify")
         deposit_menu()
@@ -44,26 +44,30 @@ def deposit_menu():
             with open('balance.txt', 'w') as balance2:
                 balance2.write(str(current_balance + d_amount))
         with open('balance.txt') as balance:
-            print(balance.read())
+            print("Your new balance is now: " + balance.read())
 
 
 def withdraw_menu():
-    w_amount = int(input("How much money would you like to withdraw from your account? "))
-    if w_amount == 0 or w_amount > balance:
-        print("The amount you've entered is invalid due to it being either zero or more than your current balance. "
-              "Please rectify.")
-        withdraw_menu()
-    else:
-        with open('balance.txt') as balance:
-            current_balance = int(balance.read())
+    with open('balance.txt') as balance:
+        current_balance = balance.read()
+        w_amount = int(input("How much money would you like to withdraw from your account? "))
+
+        if w_amount == 0 or w_amount > int(current_balance):
+            print("The amount you've entered is invalid due to it being either zero or more than your current balance. "
+                  "Please rectify.")
+            withdraw_menu()
+        else:
             with open('balance.txt', 'w') as balance2:
-                balance2.write((current_balance- w_amount)
-        with open('balance.txt') as balance:
-            print(balance.read())
+                new_balance = (int(current_balance) - w_amount)
+                balance2.write(str(new_balance))
+            with open('balance.txt') as balance:
+                print("You have successfully withdrawn: " + str(
+                    w_amount) + ". And your new total balance is: " + balance.read())
 
 
-
-
+def balance_menu():
+    with open('balance.txt') as balance:
+        print("your current balance is: " + balance.read())
 
 
 main_menu()
