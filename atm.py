@@ -25,7 +25,7 @@ def main_menu():
         balance_menu()
 
     elif selection == "Q" or selection == "q":
-        print("Have a nice day.")
+        print("Have a nice day!")
         quit()
 
     else:
@@ -46,12 +46,14 @@ def deposit_menu():
                 balance2.write(str(current_balance + d_amount))
         with open('balance.txt') as balance:
             print("Your new balance is now: " + balance.read())
+        new_op()
 
 
 def withdraw_menu():
     with open('balance.txt') as balance:
         current_balance = balance.read()
         w_amount = int(input("How much money would you like to withdraw from your account? "))
+
 
         if w_amount == 0 or w_amount > int(current_balance):
             print("The amount you've entered is invalid due to it being either zero or more than your current balance. "
@@ -64,11 +66,28 @@ def withdraw_menu():
             with open('balance.txt') as balance:
                 print("You have successfully withdrawn: " + str(
                     w_amount) + ". And your new total balance is: " + balance.read())
+            new_op()
 
 
 def balance_menu():
     with open('balance.txt') as balance:
         print("your current balance is: " + balance.read())
+        new_op()
+
+
+def new_op():
+    answer = input("would you like to continue operations? (Y/N)")
+    if answer.lower() == "y" or answer.lower() == "yes":
+        main_menu()
+
+    elif answer.lower() == "n" or answer.lower() == "n":
+        print("Have a nice day!")
+        quit()
+
+    else:
+        print("\"" + selection + "\" is not a valid option, please select a valid option.")
+        main_menu()
+
 
 
 main_menu()
